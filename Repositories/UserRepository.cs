@@ -7,7 +7,11 @@ namespace Blog.Repositories
     public class UserRepository
     {
 
-        private SqlConnection _connection = new SqlConnection("");
+        private readonly SqlConnection _connection = new SqlConnection("");
+
+        public UserRepository(SqlConnection connection)
+        => _connection = connection;
+
         public IEnumerable<User> GetAll(String connectionString)
         => _connection.GetAll<User>();
 
@@ -17,6 +21,9 @@ namespace Blog.Repositories
         =>
             _connection.Insert<User>(user);
 
-
+        internal object Get()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
