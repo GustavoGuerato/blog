@@ -11,70 +11,28 @@ class Program
     {
         var connection = new SqlConnection(CONNECTION_STRING);
         connection.Open();
-
-
+        ReadUsers(connection);
         connection.Close();
     }
 
     public static void ReadUsers(SqlConnection connection)
     {
         var repository = new UserRepository(connection);
-        var users = repository.Get();
+        var users = repository.GetAll();
 
-
-
-
+        foreach (var user in users)
+            System.Console.WriteLine(user.Name);
     }
-
-    public static void CreateUsers()
+    public static void ReadRoles(SqlConnection connection)
     {
+        var repository = new RoleRepository(connection);
+        var roles = repository.GetAll();
 
-        var user = new User()
-        {
-            Bio = "Equipe Balta.io",
-            Email = "hello@balta.io",
-            Image = "",
-            Name = "Equipe balta.io",
-            PasswordHash = "HASH",
-            Slug = "equipe-balta"
-        };
-
-        using (var connection = new SqlConnection(CONNECTION_STRING))
-        {
-            connection.Insert<User>(user);
-            System.Console.WriteLine("Cadastro Realizado com Sucesso");
-        }
-
+        foreach (var role in roles)
+            System.Console.WriteLine(role.Name);
     }
 
 
-    public static void UpdateUsers()
-    {
-        var user = new User()
-        {
-            Id = 2,
-            Bio = "Equipe | Balta.io",
-            Email = "hello@balta.io",
-            Image = "",
-            Name = "Equipe de suporte balta.io",
-            PasswordHash = "HASH",
-            Slug = "equipe-balta"
-        };
 
-        using (var connection = new SqlConnection(CONNECTION_STRING))
-        {
-            connection.Update<User>(user);
-            System.Console.WriteLine("Atualização Realizado com Sucesso");
-        }
-    }
 
-    public static void DeleteUsers()
-    {
-        using (var connection = new SqlConnection(CONNECTION_STRING))
-        {
-            var user = connection.Get<User>(2);
-            connection.Delete<User>(user);
-            System.Console.WriteLine("Atualização Realizado com Sucesso");
-        }
-    }
 }
