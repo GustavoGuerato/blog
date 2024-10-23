@@ -1,18 +1,16 @@
+using Blog.Models;
+using Dapper.Contrib.Extensions;
+using Microsoft.Data.SqlClient;
+
 namespace Blog.Repositories
 {
     public class UserRepository
     {
-        public void ReadUsers()
+        public IEnumerable<User> GetAll()
         {
-            using (var connection = new SqlConnection(CONNECTION_STRING))
+            using (var connection = new SqlConnection(""))
             {
-                var users = connection.GetAll<User>();
-
-                foreach (var user in users)
-                {
-                    System.Console.WriteLine(user.Name);
-
-                }
+               return connection.GetAll<User>();
             }
         }
     }
