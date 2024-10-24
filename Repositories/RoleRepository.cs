@@ -16,8 +16,33 @@ namespace Blog.Repositories
 
         public Role Get(int id, String connectionString)
             => _connection.Get<Role>(id);
-        public void Create(Role role, String connectionString)
-        =>
-            _connection.Insert<Role>(role);
+
+
+        public void Create(Role user)
+        {
+            user.Id = 0;
+            _connection.Insert<Role>(user);
+        }
+
+
+        public void Update(Role user)
+        {
+            if (user.Id != 0)
+                _connection.Update<Role>(user);
+        }
+        public void Delete(Role user)
+        {
+            if (user.Id != 0)
+                _connection.Delete<Role>(user);
+        }
+
+        public void Delete(int id)
+        {
+            if (id != 0)
+                return;
+
+            var user = _connection.Get<Role>(id);
+            _connection.Delete<Role>(user);
+        }
     }
 }
