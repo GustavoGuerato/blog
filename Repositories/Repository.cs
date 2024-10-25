@@ -31,11 +31,11 @@ namespace Blog.Repositories
 
         public void Delete(int id)
         {
-
-
             var model = _connection.Get<T>(id);
             _connection.Delete<T>(model);
         }
+
+        
 
     }
 }

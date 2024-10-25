@@ -1,4 +1,5 @@
-﻿using Blog.Models;
+﻿using System.Net.NetworkInformation;
+using Blog.Models;
 using Blog.Repositories;
 using Dapper.Contrib.Extensions;
 using Microsoft.Data.SqlClient;
@@ -39,6 +40,34 @@ class Program
 
         foreach (var item in items)
             System.Console.WriteLine(item.Name);
+    }
+
+    public static void UpdateUser(SqlConnection connection, int userId)
+    {
+        using (connection)
+        {
+            var repository = new Repository<User>(connection);
+
+            var user = repository.Get(userId, CONNECTION_STRING);
+
+            if (user != null)
+            {
+                user.Bio = "Equipe l Balta.io";
+                user.Email = "hello@balta.io";
+                user.Image = "http://";
+                user.Name = "Equipe de suporte balta.io";
+                user.PasswordHash = "HASH";
+                user.Slug = "equipe-balta";
+
+                repository.Update(user);
+
+                System.Console.WriteLine("usuario atualizado com sucesso");
+            }
+            else
+            {
+                System.Console.WriteLine("usuario não foi localizado");
+            }
+        }
     }
 
 
