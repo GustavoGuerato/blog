@@ -50,6 +50,21 @@ namespace Blog.Repositories
             }
         }
 
+        public void DeleteById(int id)
+        {
+            var entity = _connection.Get<T>(id);
+
+            if (entity != null)
+            {
+                _connection.Delete<T>(entity);
+                System.Console.WriteLine("exclusão com sucesso");
+            }
+            else
+            {
+                System.Console.WriteLine("ocorreu algum erro");
+            }
+        }
+
 
 
     }

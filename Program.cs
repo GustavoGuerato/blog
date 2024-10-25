@@ -14,6 +14,7 @@ class Program
         connection.Open();
         ReadUsers(connection);
         connection.Close();
+
     }
 
     public static void ReadUsers(SqlConnection connection)
@@ -59,6 +60,14 @@ class Program
 
         repository.UpdateById(updateUser.Id, updateUser);
     }
+
+    public static void DeleteUser(SqlConnection connection)
+    {
+        var repository = new Repository<User>(connection);
+        repository.DeleteById(2);
+    }
+
+    
 
 
 
