@@ -56,6 +56,7 @@ class Program
             Name = "Equipe de suporte balta.io",
             PasswordHash = "HASH",
             Slug = "equipe-balta"
+
         };
 
         repository.UpdateById(updateUser.Id, updateUser);
@@ -67,7 +68,7 @@ class Program
         repository.DeleteById(2);
     }
 
-    
+
 
 
 
