@@ -35,7 +35,22 @@ namespace Blog.Repositories
             _connection.Delete<T>(model);
         }
 
-        
+        public void UpdateById(int id, T model)
+        {
+            var existingEntity = _connection.Get<T>(id);
+
+            if (existingEntity != null)
+            {
+                _connection.Update<T>(model);
+                System.Console.WriteLine("Atualizacao realizada com sucesso");
+            }
+            else
+            {
+                System.Console.WriteLine("ocorreu algum erro");
+            }
+        }
+
+
 
     }
 }

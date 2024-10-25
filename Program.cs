@@ -42,33 +42,24 @@ class Program
             System.Console.WriteLine(item.Name);
     }
 
-    public static void UpdateUser(SqlConnection connection, int userId)
+    public static void UpdateUser(SqlConnection connection)
     {
-        using (connection)
+        var repository = new Repository<User>(connection);
+
+        var updateUser = new User()
         {
-            var repository = new Repository<User>(connection);
+            Id = 2,
+            Bio = "Equipe | Balta.io",
+            Email = "hello@balta.io",
+            Image = "",
+            Name = "Equipe de suporte balta.io",
+            PasswordHash = "HASH",
+            Slug = "equipe-balta"
+        };
 
-            var user = repository.Get(userId, CONNECTION_STRING);
-
-            if (user != null)
-            {
-                user.Bio = "Equipe l Balta.io";
-                user.Email = "hello@balta.io";
-                user.Image = "http://";
-                user.Name = "Equipe de suporte balta.io";
-                user.PasswordHash = "HASH";
-                user.Slug = "equipe-balta";
-
-                repository.Update(user);
-
-                System.Console.WriteLine("usuario atualizado com sucesso");
-            }
-            else
-            {
-                System.Console.WriteLine("usuario não foi localizado");
-            }
-        }
+        repository.UpdateById(updateUser.Id, updateUser);
     }
+
 
 
 
