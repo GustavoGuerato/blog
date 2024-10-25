@@ -17,19 +17,28 @@ class Program
 
     public static void ReadUsers(SqlConnection connection)
     {
-        var repository = new UserRepository(connection);
-        var users = repository.GetAll();
+        var repository = new Repository<User>(connection);
+        var items = repository.GetAll();
 
-        foreach (var user in users)
-            System.Console.WriteLine(user.Name);
+        foreach (var item in items)
+            System.Console.WriteLine(item.Name);
     }
     public static void ReadRoles(SqlConnection connection)
     {
-        var repository = new RoleRepository(connection);
-        var roles = repository.GetAll();
+        var repository = new Repository<Role>(connection);
+        var items = repository.GetAll();
 
-        foreach (var role in roles)
-            System.Console.WriteLine(role.Name);
+        foreach (var item in items)
+            System.Console.WriteLine(item.Name);
+    }
+
+    public static void ReadTags(SqlConnection connection)
+    {
+        var repository = new Repository<Tag>(connection);
+        var items = repository.GetAll();
+
+        foreach (var item in items)
+            System.Console.WriteLine(item.Name);
     }
 
 
