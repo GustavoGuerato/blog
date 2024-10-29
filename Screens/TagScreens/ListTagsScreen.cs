@@ -2,6 +2,6 @@ namespace Blog.Screens.TagScreens
 {
     public class ListTagsScreen
     {
-        public void Load() { }
+        public static void Load() { }
     }
 }
