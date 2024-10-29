@@ -47,19 +47,19 @@ class Program
     {
         var repository = new Repository<User>(connection);
 
-        var updateUser = new User()
-        {
-            Id = 2,
-            Bio = "Equipe | Balta.io",
-            Email = "hello@balta.io",
-            Image = "",
-            Name = "Equipe de suporte balta.io",
-            PasswordHash = "HASH",
-            Slug = "equipe-balta"
+        // var updateUser = new User()
+        // {
+        //     Id = 2,
+        //     Bio = "Equipe | Balta.io",
+        //     Email = "hello@balta.io",
+        //     Image = "",
+        //     Name = "Equipe de suporte balta.io",
+        //     PasswordHash = "HASH",
+        //     Slug = "equipe-balta"
 
-        };
+        // };
 
-        repository.UpdateById(updateUser.Id, updateUser);
+        // repository.UpdateById(updateUser.Id, updateUser);
     }
 
     public static void DeleteUser(SqlConnection connection)

@@ -17,14 +17,14 @@
           "C:\\Users\\Gustavo\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net8.0-windows"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
             "projectReferences": {}
           }
         },
@@ -40,18 +40,18 @@
         }
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
           "dependencies": {
-            "dapper": {
+            "Dapper": {
               "target": "Package",
               "version": "[2.1.35, )"
             },
-            "dapper.contrib": {
+            "Dapper.Contrib": {
               "target": "Package",
               "version": "[2.0.78, )"
             },
-            "microsoft.data.sqlclient": {
+            "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[5.2.2, )"
             }
@@ -70,6 +70,9 @@
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
