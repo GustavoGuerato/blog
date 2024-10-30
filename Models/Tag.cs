@@ -7,10 +7,17 @@ namespace Blog.Models
     public class Tag
     {
         public int Id { get; set; }
-        public required string Name { get; set; }
-        public required string Slug { get; set; }
-        
+        public string Name { get; set; }
+        public string Slug { get; set; }
+
         [Write(false)]
-        public required List<Post> Posts { get; set; }
+        public List<Post> Posts { get; set; }
+
+        public Tag(string name, string slug)
+        {
+            Name = name;
+            Slug = slug;
+            Posts = new List<Post>();
+        }
     }
 }

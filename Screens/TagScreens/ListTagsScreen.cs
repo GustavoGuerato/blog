@@ -5,12 +5,13 @@ namespace Blog.Screens.TagScreens
 {
     public class ListTagsScreen
     {
-        public static void Load() { 
+        public static void Load()
+        {
+            Console.Clear();
             System.Console.WriteLine("Lista de Tags");
             System.Console.WriteLine("-------------");
-            
-            
             List();
+            Console.ReadKey();
         }
 
         private static void List()
