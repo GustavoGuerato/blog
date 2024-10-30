@@ -1,4 +1,5 @@
-﻿using Blog.Screens.TagScreens;
+﻿using Blog;
+using Blog.Screens.TagScreens;
 using Microsoft.Data.SqlClient;
 
 class Program
@@ -8,7 +9,7 @@ class Program
 
     static void Main()
     {
-        var connection = new SqlConnection(CONNECTION_STRING);
+        Database.Connection = new SqlConnection(CONNECTION_STRING);
         connection.Open();
         Load();
 
