@@ -17,6 +17,7 @@ namespace Blog.Screens.TagScreens
 
             Create(new Tag(name, slug));
             Console.ReadKey();
+            MenuTagScreen.Load();
         }
 
         public static void Create(Tag tag)
